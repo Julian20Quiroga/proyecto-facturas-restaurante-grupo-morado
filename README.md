@@ -2,7 +2,6 @@
 ## Grupo <span style="color:#FD47FF">Morado</span>
 
 # Integrantes
-<ul>
     - Julián Andrés Quiroga Lizarazo
     - Angie Valentina Gutierrez Pineda
     - Anderson Stiven Gonzales Moreno
