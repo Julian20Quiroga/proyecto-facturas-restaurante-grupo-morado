@@ -1,0 +1,22 @@
+package com.grupo_morado.sistema_facturacion_inventario.infrastructure.persistence.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
+
+@Entity
+@Getter
+@Setter
+public class OrderDetail extends BaseEntity{
+    private Integer quantity;
+    private BigDecimal price;
+    private String observation;
+
+    @ManyToOne
+    private Order order;
+    @ManyToOne
+    private Dish dish;
+}
