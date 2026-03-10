@@ -8,5 +8,5 @@
     - Daian Felipe Castellanos Tarazona
 
 # Tecnologías Usadas
-    - VANILLA JAVASCRIPT (FRONTEND)
+    - REACT JS (FRONTEND)
     - JAVA CON SPRING BOOT (BACKEND)
