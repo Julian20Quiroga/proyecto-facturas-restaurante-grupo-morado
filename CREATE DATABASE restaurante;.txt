@@ -1,0 +1,94 @@
+CREATE DATABASE restaurante;
+USE restaurante;
+
+
+-- TABLA ROL
+
+CREATE TABLE rol (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nombre      VARCHAR(50) NOT NULL,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+-- TABLA USUARIO
+
+CREATE TABLE usuario (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nombre      VARCHAR(100) NOT NULL,
+    apellidos   VARCHAR(150) NOT NULL,                                  
+    email       VARCHAR(150) UNIQUE NOT NULL,                          
+    contrasena  VARCHAR(255) NOT NULL,
+    estado      ENUM('activo', 'inactivo') DEFAULT 'activo',           
+    id_rol      INT,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_rol) REFERENCES rol(id)
+);
+
+
+CREATE TABLE mesa (
+    id                    INT AUTO_INCREMENT PRIMARY KEY,
+    numero_mesa           INT NOT NULL UNIQUE,
+    estado_disponibilidad ENUM('disponible', 'ocupada', 'reservada') DEFAULT 'disponible',  --no sé si dejar la opción "reservada"
+    estado_registro       ENUM('activo', 'inactivo') DEFAULT 'activo',                       
+    created_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- TABLA MENÚ
+
+CREATE TABLE menu (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nombre      VARCHAR(100) NOT NULL UNIQUE,                         
+    estado      ENUM('activo', 'inactivo') DEFAULT 'activo',           
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+-- TABLA PLATO
+
+CREATE TABLE plato (
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    nombre      VARCHAR(150) NOT NULL,
+    descripcion TEXT,
+    precio      DECIMAL(10,2) NOT NULL,
+    stock       INT NOT NULL DEFAULT 0,                                
+    estado      ENUM('activo', 'inactivo') DEFAULT 'activo',         
+    id_menu     INT,                                                   
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_menu) REFERENCES menu(id)                         
+);
+
+-- TABLA ORDEN
+
+CREATE TABLE orden (
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    estado            ENUM('pendiente', 'en_preparacion', 'listo', 'pagado', 'cancelado') DEFAULT 'pendiente',  
+    subtotal          DECIMAL(10,2),
+    impuesto_consumo  DECIMAL(10,2),                                   
+    total             DECIMAL(10,2),
+    id_mesa           INT,
+    id_mesero         INT,                                             
+    created_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_mesa)    REFERENCES mesa(id),
+    FOREIGN KEY (id_mesero)  REFERENCES usuario(id)                   
+);
+
+-- TABLA DETALLE_ORDEN
+CREATE TABLE detalle_orden (
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    cantidad        INT NOT NULL,
+    precio_unitario DECIMAL(10,2),
+    observaciones   TEXT,
+    id_orden        INT,
+    id_plato        INT,
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_orden) REFERENCES orden(id),
+    FOREIGN KEY (id_plato) REFERENCES plato(id)
+);
