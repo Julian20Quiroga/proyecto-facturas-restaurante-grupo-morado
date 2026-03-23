@@ -1,7 +1,7 @@
 package com.grupo_morado.sistema_facturacion_inventario.domain.model.enums;
 
 public enum StatusEnum {
-    ACTIVE,
-    DISABLED,
-    PAUSED
+    ACTIVO,
+    INACTIVO,
+    PAUSADO
 }
