@@ -1,0 +1,20 @@
+// Paleta de colores del sistema SFR
+// Estos valores están sincronizados con tailwind.config.js
+export const COLORS = {
+  primary: "#E87722",
+  primaryDark: "#C45F10",
+  primaryLight: "#FFA94D",
+  dark: "#1A0A00",
+  brown: "#3D1A00",
+  cream: "#FFF8F0",
+  white: "#FFFFFF",
+  gray100: "#F5F5F0",
+  gray200: "#E8E2DC",
+  gray400: "#B0A090",
+  gray600: "#7A6A5A",
+  gray800: "#3D3028",
+  success: "#2E9E5B",
+  danger: "#D64035",
+  warning: "#E8A020",
+  info: "#2E7DB5",
+};
