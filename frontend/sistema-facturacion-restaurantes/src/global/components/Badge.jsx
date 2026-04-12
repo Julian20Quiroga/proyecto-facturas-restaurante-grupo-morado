@@ -8,7 +8,7 @@ const variantClasses = {
 };
 
 /**
- * Badge de estado.
+ * Badge de estado......
  * @param {'success'|'danger'|'warning'|'info'|'default'} variant
  */
 export default function Badge({ variant = "default", children }) {
