@@ -1,10 +1,3 @@
-/**
- * modules/order/WaiterOrdenes.jsx
- * ─────────────────────────────────
- * Vista de órdenes del mesero.
- * Rol: Mesero
- */
-
 import { useState } from "react";
 import DashboardLayout from "../../templates/DashboardLayout.jsx";
 import PageHeader      from "../../global/components/PageHeader.jsx";
@@ -15,7 +8,7 @@ import Modal           from "../../global/components/Modal.jsx";
 import OrderForm       from "./components/OrderForm.jsx";
 
 const ORDENES = [
-  { id: "#042", mesa: "Mesa 3", platos: 2, subtotal: "$85.000",  estado: "lista" },
+  { id: "#042", mesa: "Mesa 3", platos: 2, subtotal: "$85.000",  estado: "lista"          },
   { id: "#041", mesa: "Mesa 7", platos: 3, subtotal: "$120.000", estado: "en_preparacion" },
   { id: "#038", mesa: "Mesa 2", platos: 1, subtotal: "$32.000",  estado: "en_preparacion" },
 ];

@@ -1,19 +1,3 @@
-/**
- * global/components/Sidebar.jsx
- * ──────────────────────────────
- * RESPONSABILIDAD:
- *   - Renderizar la navegación lateral del dashboard.
- *   - Usar <Link> de React Router para navegación real (sin recargas).
- *   - Obtener los items del sidebar según el rol desde sidebarItems.js.
- *
- * Props:
- *   role     {string}   - Rol del usuario actual (admin, mesero, chef, cajero)
- *   active   {string}   - key del item activo
- *   isOpen   {boolean}  - visibilidad en mobile
- *   onClose  {Function} - cierra el sidebar en móvil
- *   onLogout {Function} - handler del botón cerrar sesión
- */
-
 import { Link } from "react-router-dom";
 import { SIDEBAR_BY_ROLE } from "../constants/sidebarItems.js";
 
@@ -28,7 +12,6 @@ export default function Sidebar({
 
   return (
     <>
-      {/* Overlay móvil */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-20 md:hidden"
@@ -36,7 +19,6 @@ export default function Sidebar({
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`
           fixed top-14 left-0 bottom-0 z-30 w-56 bg-[#3D1A00] flex flex-col pt-4 transition-transform duration-300
@@ -71,7 +53,6 @@ export default function Sidebar({
           })}
         </nav>
 
-        {/* Footer — Cerrar sesión */}
         <div className="px-4 py-4 border-t border-white/10">
           <button
             onClick={onLogout}

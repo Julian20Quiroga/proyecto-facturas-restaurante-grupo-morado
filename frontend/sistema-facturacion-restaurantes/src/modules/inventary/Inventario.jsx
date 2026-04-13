@@ -1,10 +1,3 @@
-/**
- * modules/inventary/Inventario.jsx
- * ──────────────────────────────────
- * Inventario de platos del restaurante.
- * Rol: Administrador
- */
-
 import { useState } from "react";
 import DashboardLayout from "../../templates/DashboardLayout.jsx";
 import PageHeader      from "../../global/components/PageHeader.jsx";
@@ -16,11 +9,11 @@ import Modal           from "../../global/components/Modal.jsx";
 import DishForm        from "../dish/components/DishForm.jsx";
 
 const PLATOS = [
-  { id: 1, nombre: "Bandeja Paisa",  menu: "Almuerzos", stock: 15, precio: "$38.000", activo: true },
-  { id: 2, nombre: "Ajiaco",         menu: "Almuerzos", stock: 8,  precio: "$32.000", activo: true },
-  { id: 3, nombre: "Arepa de Choclo",menu: "Desayunos", stock: 0,  precio: "$12.000", activo: false },
-  { id: 4, nombre: "Jugo de Lulo",   menu: "Bebidas",   stock: 20, precio: "$8.000",  activo: true },
-  { id: 5, nombre: "Sancocho",       menu: "Almuerzos", stock: 6,  precio: "$28.000", activo: true },
+  { id: 1, nombre: "Bandeja Paisa",   menu: "Almuerzos", stock: 15, precio: "$38.000", activo: true  },
+  { id: 2, nombre: "Ajiaco",          menu: "Almuerzos", stock: 8,  precio: "$32.000", activo: true  },
+  { id: 3, nombre: "Arepa de Choclo", menu: "Desayunos", stock: 0,  precio: "$12.000", activo: false },
+  { id: 4, nombre: "Jugo de Lulo",    menu: "Bebidas",   stock: 20, precio: "$8.000",  activo: true  },
+  { id: 5, nombre: "Sancocho",        menu: "Almuerzos", stock: 6,  precio: "$28.000", activo: true  },
 ];
 
 export default function Inventario() {

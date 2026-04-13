@@ -1,15 +1,3 @@
-/**
- * global/components/Topbar.jsx
- * ─────────────────────────────
- * RESPONSABILIDAD:
- *   - Renderizar la barra superior del dashboard.
- *   - Obtener el usuario autenticado desde el AuthContext (useAuth).
- *
- * Props:
- *   screenName       {string}   - Nombre de la sección actual
- *   onToggleSidebar  {Function} - Handler para toggle de sidebar en móvil
- */
-
 import { useAuth } from "../hooks/useAuth.js";
 
 export default function Topbar({ screenName = "", onToggleSidebar }) {
@@ -18,7 +6,6 @@ export default function Topbar({ screenName = "", onToggleSidebar }) {
   const userName = user?.nombre ?? "Usuario";
   const roleInitial = userName ? userName[0].toUpperCase() : "U";
 
-  // Etiqueta amigable del rol
   const roleLabel = {
     admin:  "Administrador",
     mesero: "Mesero",
@@ -31,7 +18,6 @@ export default function Topbar({ screenName = "", onToggleSidebar }) {
       className="bg-[#1A0A00] h-14 px-4 md:px-6 flex items-center justify-between
       border-b-2 border-[#E87722] flex-shrink-0 z-10"
     >
-      {/* Logo + toggle mobile */}
       <div className="flex items-center gap-3">
         <button
           onClick={onToggleSidebar}
@@ -55,7 +41,6 @@ export default function Topbar({ screenName = "", onToggleSidebar }) {
         </span>
       </div>
 
-      {/* Screen label + User */}
       <div className="flex items-center gap-3 md:gap-4">
         {screenName && (
           <span className="text-gray-400 text-xs hidden md:block truncate max-w-[180px]">

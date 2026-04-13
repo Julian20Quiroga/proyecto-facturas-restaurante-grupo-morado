@@ -1,12 +1,13 @@
+import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from './global/context/AuthContext.jsx'
+import AppRouter from './global/router/AppRouter.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <p>Hola mundo</p>
-    </>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
-
-export default App

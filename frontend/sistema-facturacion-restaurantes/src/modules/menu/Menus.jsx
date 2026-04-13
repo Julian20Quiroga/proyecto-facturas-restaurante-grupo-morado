@@ -1,10 +1,3 @@
-/**
- * modules/menu/Menus.jsx
- * ───────────────────────
- * Gestión de menús del restaurante.
- * Rol: Administrador
- */
-
 import { useState } from "react";
 import DashboardLayout from "../../templates/DashboardLayout.jsx";
 import PageHeader      from "../../global/components/PageHeader.jsx";
@@ -14,10 +7,10 @@ import Modal           from "../../global/components/Modal.jsx";
 import MenuForm        from "./components/MenuForm.jsx";
 
 const MENUS = [
-  { id: 1, nombre: "Desayunos", platos: 6,  activo: true },
-  { id: 2, nombre: "Almuerzos", platos: 12, activo: true },
-  { id: 3, nombre: "Cenas",     platos: 8,  activo: true },
-  { id: 4, nombre: "Bebidas",   platos: 10, activo: true },
+  { id: 1, nombre: "Desayunos", platos: 6,  activo: true  },
+  { id: 2, nombre: "Almuerzos", platos: 12, activo: true  },
+  { id: 3, nombre: "Cenas",     platos: 8,  activo: true  },
+  { id: 4, nombre: "Bebidas",   platos: 10, activo: true  },
   { id: 5, nombre: "Postres",   platos: 4,  activo: false },
 ];
 

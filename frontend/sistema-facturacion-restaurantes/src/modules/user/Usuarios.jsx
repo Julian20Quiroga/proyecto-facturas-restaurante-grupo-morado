@@ -1,10 +1,3 @@
-/**
- * modules/user/Usuarios.jsx
- * ──────────────────────────
- * Gestión de usuarios del sistema.
- * Rol: Administrador
- */
-
 import { useState } from "react";
 import DashboardLayout from "../../templates/DashboardLayout.jsx";
 import PageHeader      from "../../global/components/PageHeader.jsx";
@@ -16,10 +9,10 @@ import Modal           from "../../global/components/Modal.jsx";
 import UserForm        from "./components/UserForm.jsx";
 
 const USERS = [
-  { id: 1, nombre: "Juan García",      email: "juan@sfr.com",    rol: "Administrador", activo: true },
-  { id: 2, nombre: "Laura Martínez",   email: "laura@sfr.com",   rol: "Mesero",        activo: true },
-  { id: 3, nombre: "Carlos Rodríguez", email: "carlos@sfr.com",  rol: "Chef",          activo: true },
-  { id: 4, nombre: "Ana López",        email: "ana@sfr.com",     rol: "Cajero",        activo: false },
+  { id: 1, nombre: "Juan García",      email: "juan@sfr.com",   rol: "Administrador", activo: true  },
+  { id: 2, nombre: "Laura Martínez",   email: "laura@sfr.com",  rol: "Mesero",        activo: true  },
+  { id: 3, nombre: "Carlos Rodríguez", email: "carlos@sfr.com", rol: "Chef",          activo: true  },
+  { id: 4, nombre: "Ana López",        email: "ana@sfr.com",    rol: "Cajero",        activo: false },
 ];
 
 export default function Usuarios() {

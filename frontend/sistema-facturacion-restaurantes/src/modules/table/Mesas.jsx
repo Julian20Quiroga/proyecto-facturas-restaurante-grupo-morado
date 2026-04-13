@@ -1,10 +1,3 @@
-/**
- * modules/table/Mesas.jsx
- * ────────────────────────
- * Gestión de mesas del restaurante.
- * Rol: Administrador
- */
-
 import { useState } from "react";
 import DashboardLayout from "../../templates/DashboardLayout.jsx";
 import PageHeader      from "../../global/components/PageHeader.jsx";
@@ -15,12 +8,12 @@ import Modal           from "../../global/components/Modal.jsx";
 import TableForm       from "./components/TableForm.jsx";
 
 const MESAS = [
-  { id: 1, numero: "Mesa 1", disponibilidad: "Ocupada", registro: "Activa" },
-  { id: 2, numero: "Mesa 2", disponibilidad: "Libre",   registro: "Activa" },
-  { id: 3, numero: "Mesa 3", disponibilidad: "Ocupada", registro: "Activa" },
+  { id: 1, numero: "Mesa 1", disponibilidad: "Ocupada", registro: "Activa"   },
+  { id: 2, numero: "Mesa 2", disponibilidad: "Libre",   registro: "Activa"   },
+  { id: 3, numero: "Mesa 3", disponibilidad: "Ocupada", registro: "Activa"   },
   { id: 4, numero: "Mesa 4", disponibilidad: "Libre",   registro: "Inactiva" },
-  { id: 5, numero: "Mesa 5", disponibilidad: "Ocupada", registro: "Activa" },
-  { id: 6, numero: "Mesa 6", disponibilidad: "Libre",   registro: "Activa" },
+  { id: 5, numero: "Mesa 5", disponibilidad: "Ocupada", registro: "Activa"   },
+  { id: 6, numero: "Mesa 6", disponibilidad: "Libre",   registro: "Activa"   },
 ];
 
 export default function Mesas() {
