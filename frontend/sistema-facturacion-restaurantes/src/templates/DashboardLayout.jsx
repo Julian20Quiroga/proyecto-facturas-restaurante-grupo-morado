@@ -1,19 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Topbar  from "../global/components/Topbar.jsx";
 import Sidebar from "../global/components/Sidebar.jsx";
 import { useAuth } from "../global/hooks/useAuth.js";
-import { ROUTES } from "../global/constants/routes.js";
 
 export default function DashboardLayout({ screenName, activeItem, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    await logout();
-    navigate(ROUTES.LOGIN, { replace: true });
-  };
+  const { user } = useAuth();
 
   return (
     <div className="h-screen flex flex-col bg-[#FFF8F0] overflow-hidden">
@@ -27,7 +19,6 @@ export default function DashboardLayout({ screenName, activeItem, children }) {
           active={activeItem}
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
-          onLogout={handleLogout}
         />
         <main className="flex-1 overflow-y-auto p-4 md:p-6 page-enter">
           {children}

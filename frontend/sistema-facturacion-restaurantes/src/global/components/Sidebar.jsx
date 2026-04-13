@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 import { SIDEBAR_BY_ROLE } from "../constants/sidebarItems.js";
 
-export default function Sidebar({
-  role = "",
-  active,
-  isOpen = true,
-  onClose,
-  onLogout,
-}) {
+export default function Sidebar({ role = "", active, isOpen = true, onClose }) {
   const items = SIDEBAR_BY_ROLE[role] ?? [];
 
   return (
@@ -52,28 +46,6 @@ export default function Sidebar({
             );
           })}
         </nav>
-
-        <div className="px-4 py-4 border-t border-white/10">
-          <button
-            onClick={onLogout}
-            className="flex items-center gap-2.5 text-gray-400 hover:text-red-400 transition-colors w-full"
-          >
-            <svg
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              className="w-4 h-4 flex-shrink-0"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-              />
-            </svg>
-            <span className="text-xs font-medium">Cerrar sesión</span>
-          </button>
-        </div>
       </aside>
     </>
   );

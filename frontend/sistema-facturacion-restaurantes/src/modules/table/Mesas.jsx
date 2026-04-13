@@ -17,7 +17,11 @@ const MESAS = [
 ];
 
 export default function Mesas() {
-  const [showModal, setShowModal] = useState(false);
+  const [showCreate, setShowCreate] = useState(false);
+  const [showEdit,   setShowEdit]   = useState(false);
+  const [selected,   setSelected]   = useState(null);
+
+  const openEdit = (m) => { setSelected(m); setShowEdit(true); };
 
   const rows = MESAS.map((m) => [
     m.id,
@@ -29,7 +33,7 @@ export default function Mesas() {
       ? <Badge variant="success">Activa</Badge>
       : <Badge>Inactiva</Badge>,
     <div className="flex gap-1.5">
-      <Button small>Editar</Button>
+      <Button small onClick={() => openEdit(m)}>Editar</Button>
       {m.registro === "Activa"
         ? <Button small variant="danger">Desactivar</Button>
         : <Button small variant="success">Reactivar</Button>}
@@ -41,7 +45,7 @@ export default function Mesas() {
       <PageHeader
         title="Gestión de Mesas"
         actionLabel="+ Crear Mesa"
-        onAction={() => setShowModal(true)}
+        onAction={() => setShowCreate(true)}
       />
 
       <div className="bg-white rounded-xl p-5 shadow-sm">
@@ -51,11 +55,18 @@ export default function Mesas() {
         />
       </div>
 
-      {showModal && (
-        <Modal title="Crear Mesa" onClose={() => setShowModal(false)} size="sm">
-          <TableForm onCancel={() => setShowModal(false)} />
+      {showCreate && (
+        <Modal title="Crear Mesa" onClose={() => setShowCreate(false)} size="sm">
+          <TableForm onCancel={() => setShowCreate(false)} />
+        </Modal>
+      )}
+
+      {showEdit && selected && (
+        <Modal title={`Editar ${selected.numero}`} onClose={() => setShowEdit(false)} size="sm">
+          <TableForm isEdit onCancel={() => setShowEdit(false)} />
         </Modal>
       )}
     </DashboardLayout>
   );
 }
+
